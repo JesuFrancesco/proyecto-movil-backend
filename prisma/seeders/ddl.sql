@@ -1,0 +1,31 @@
+CREATE TABLE public.brand_sellers (id integer, name text, description text, reference_location text, country_id integer);
+CREATE TABLE public.cart_items (added_at timestamp without time zone, cart_id integer, product_id integer, amount integer);
+CREATE TABLE public.chat_messages (chat_id integer, message_id integer);
+CREATE TABLE public.chat_participants (client_id integer, chat_id integer);
+CREATE TABLE public.chats (created_at timestamp without time zone, id integer);
+CREATE TABLE public.client_notifications (client_id integer, notification_id integer);
+CREATE TABLE public.clients (departamento_id integer, id integer, distrito_id integer, provincia_id integer, profile_id uuid, reference_address text);
+CREATE TABLE public.countries (name text, id integer, code text);
+CREATE TABLE public.departamentos (name text, id integer);
+CREATE TABLE public.distritos (provincia_id integer, name text, departamento_id integer, id integer);
+CREATE TABLE public.markets (name text, contact_phone text, contact_email text, id integer, profile_id uuid);
+CREATE TABLE public.message_attachments (blobUrl text, filename text, messageId integer, id integer, type text);
+CREATE TABLE public.messages (status integer, profile_id uuid, created_at timestamp without time zone, id integer, text text, updated_at timestamp without time zone);
+CREATE TABLE public.notifications (created_at timestamp without time zone, title text, image_url text, updated_at timestamp without time zone, description text, id integer);
+CREATE TABLE public.order_items (amount integer, product_id integer, order_id integer);
+CREATE TABLE public.orders (status text, id integer, total_price numeric, client_id integer);
+CREATE TABLE public.product_attachments (product_id integer, image_url text);
+CREATE TABLE public.product_questions (id integer, product_id integer, text text, created_at timestamp without time zone, client_id integer);
+CREATE TABLE public.product_ratings (id integer, client_id integer, text text, created_at timestamp without time zone, score integer, product_id integer);
+CREATE TABLE public.product_tags (category_id integer, product_id integer);
+CREATE TABLE public.products (market_id integer, numero_paginas integer, brand_seller integer, peso numeric, discount integer, warranty boolean, descripcion text, name text, price numeric, stock integer, id integer, dimensions text, formato text, cubierta text, anho_edicion integer, numero_episodios integer);
+CREATE TABLE public.profiles (email text, id uuid, created_at timestamp without time zone, updated_at timestamp without time zone, phone text);
+CREATE TABLE public.provincias (name text, departamento_id integer, id integer);
+CREATE TABLE public.question_replies (question_id integer, text text, id integer, created_at timestamp without time zone);
+CREATE TABLE public.rating_attachments (blobUrl text, filename text, rating_id integer, type text);
+CREATE TABLE public.shopping_carts (id integer, client_id integer);
+CREATE TABLE public.tags (name text, id integer);
+CREATE TABLE public.wishlist_items (addedAt timestamp without time zone, product_id integer, wishlist_id integer);
+CREATE TABLE public.wishlists (id integer, client_id integer);
+
+-- Los constraints son generados por Prisma de forma automatica
