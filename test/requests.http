@@ -73,25 +73,21 @@ Content-Type: application/json
 
 {
 	"data": {
-		"name": "producto prueba",
-		"stock": 1,
+		"name": "producto pro",
+		"stock": 77,
 		"price": 3.0,
+		"productAttachments": {
+			"create": [
+				{
+					"imageUrl": "https://placeholder/800x600"
+				}
+			]
+		},
 		"marketId": 1
 		
-	}
-}
-
-### Crear producto
-POST {{BASE_URL}}/product
-Content-Type: application/json
-
-{
-	"data": {
-		"name": "producto prueba",
-		"stock": 1,
-		"price": 3.0,
-		"marketId": 1
-		
+	}, 
+	"include": {
+		"productAttachments": true
 	}
 }
 
@@ -121,7 +117,7 @@ Content-Type: application/json
 }
 
 ### Publicar pregunta
-POST {{BASE_URL}}/productrating
+POST {{BASE_URL}}/productquestion
 Content-Type: application/json
 
 {
@@ -163,12 +159,10 @@ POST {{BASE_URL}}/wishlistitem
 Content-Type: application/json
 
 {
-  "data": [
-    {
+  "data": {
       "productId": 1,
       "wishlistId": 1
     }
-  ]
 }
 
 
@@ -210,6 +204,16 @@ Content-Type: application/json
 }
 
 ### Limpiar carrito de compras
+DELETE {{BASE_URL}}/cartitem/many
+Content-Type: application/json
+
+{
+	"where": {
+		"cartId": 1
+	}
+}
+
+### Quitar producto del carrito de compras
 DELETE {{BASE_URL}}/cartitem
 Content-Type: application/json
 
